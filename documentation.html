@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Documentation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <style>
+        br {display:block}
+        .header1 {
+			text-align: center;
+			background: #010185;
+			color: white;
+			font-size: 30px;
+			height:60px;
+			line-height: 60px;
+		}
+        .design_process_div {
+            padding-left:200px;
+            padding-right:200px;
+            padding-top:30px;
+            padding-bottom:30px;
+            font-size: 16px;
+            
+        }
+        .row {
+			display: flex;
+		}
+		.column1 {
+			flex: 50%;
+		}
+		.column2 {
+			flex:50%;
+		}
+    </style>
+
+</head>
+<body>
+    <div class="header1">
+		<label>Documentation</label>
+	</div>
+    <div class="design_process_div">
+        <b style="font-size:20px"><u>Design Process</u></b><br><br>
+
+        <p>The design process for Dr. John Snow's map of London's 1854 cholera epidemic visulization is divided into 5 different    parts:</p>
+    
+        <p><b>1. Defining the purpose: </b>The original visualization map consists of the locations and reported cases of cholera in the city, and showed a concentration of cases around a particular water pump on Broad Street. This led Dr. Snow to conclude that the water from the pump was contaminated and responsible for the outbreak. By recreating this visualization, my goal is that the end-user should be able to clearly understand the reason for deaths in a particular area of the city</p>
+
+        <p><b>2. Analyzing Data: </b>After examining 4 data files and creating permutations and a combination of data, I understood that deaths are associated with either gender or age. The files also provided information about the days on which deaths occurred. Considering the context of the data, I made some choices of visualizations and the way the data should be presented.</p>
+
+        <p><b>3. Sketching the layout: </b>Creating a rough sketch of a visualization helped me to visualize and plan out the design before creating it using coding. I created a rough sketch of how my visualization should look like. It included the main visualization map, distribution according to age and gender, legends for the map, a pie chart and a bar graph, A horizontal timeline graph, axes, and labels. </p><br>
+
+        <img src="images/initial_rough_sketch.jpeg" alt="rough sketch" width="700" height="500">
+        <p style="margin-left: 300px;"><b>Fig 1</b></p> <br><br>
+
+        <p><b>4. Prototyping: </b>After understanding the data and possible visualizations, now it was time to dive in and start creating actual visualizations. This process involved several iterations of design, testing, and resketching the previous designs. While creating visualizations I identified potential issues and some areas for improvement.</p>
+
+        <p><b>5. Refining: </b>To reach the final visualization, I had to make adjustments to various design elements such as color, typography, layout, chart types, or data representation. After getting several rounds of feedback, I wanted to improve and enhance the visualization design to make it more effective and engaging. The goal was to create a final visualization that effectively communicates the data and insights in a clear, concise, and engaging way. </p>
+
+        <br>
+
+        <b style="font-size:20px"><u>Rationale of my design choices</u></b> <br><br>
+
+        <p><b>1. Streets and Pumps:</b></p>
+
+        <div class="row">
+            <div class="column1">
+                <img src="images/initial_pump.png" alt="initial_pump" width="600" height="500">
+                <p style="text-align: center;"><b>Fig 2</b></p>
+            </div>
+            <div class="column2">
+                <img src="images/map.png" alt="map" width="600" height="500">
+                <p style="text-align: center;"><b>Fig 3</b></p> 
+            </div>
+        </div>
+        
+        <br>
+
+        <p>Fig 2 shows the early stages of development. In this image, I have used black color to visualize the streets of the map. The black color gives the exact representation of the streets and lanes. I initially started with a pump image to show pump locations in the city, But these pumps were not very visible because of the solid black street strokes. Later I changed the pump image to a red cross to make it more visible between crowded streets. Fig 3 shows the perfectly plot streets and pumps which are visible. Pumps are detectable even after plotting deaths, major street names and locations. I have given the option to zoom in and zoom out of the map to see the number of deaths evidently.<br> Initially I thought of giving a checkbox for visualizing deaths according to both age and gender but it would have been difficult to understand the actual number of deaths when plotted together. That's why I resketched my idea and went with radio buttons instead. </p>
+
+        <p><b>2. Colors:</b></p>
+
+        <p>I have chosen blue color for males and pink color for females as these colors are mostly associated with these respective genders. It was important to use distinguishable colors according to the age groups. I have used the same colors consistently throughout visualization for these age groups. I have kept colors subtle and have chosen from a limited color palette as too many colors can be overwhelming and confusing. Approximately 8% of men and 0.5% of women have some form of colorblindness, So I tested my website for RGB colorblind people. I tested for Protanopia and Deuteranopia colorblindness and choose colors accordingly. Below figure shows website for Protanopia colorblind people.</p><br>
+
+        <img src="images/color_blindness.png" alt="rough sketch" width="900" height="500">
+        <p style="margin-left: 450px;"><b>Fig 4</b></p> <br><br>
+
+        <p><b>3. Pie Chart:</b></p>
+
+        <div class="row">
+            <div class="column1">
+                <img src="images/gender_pie.png" alt="gender pie" width="500" height="300">
+                <p style="margin-left: 230px;"><b>Fig 5</b></p>
+            </div>
+            <div class="column2">
+                <img src="images/age_pie.png" alt="map" width="600" height="300">
+                <p style="margin-left: 270px;"><b>Fig 6</b></p> 
+            </div>
+        </div>
+
+        <br>
+
+        <p>Pie charts are a great way to show the proportion of different categories within a dataset. Each slice of the pie represents a category and the size of the slice corresponds to the proportion of the total that category represents. I choose pie charts to display the gender and age distribution of deaths because it's easy to compare the proportions of categories using a pie chart. They are generally understood by everyone, even people who are not familiar with data visualization. Initially, I thought of creating bar charts for deaths associated with age groups,(Fig 1) but later I decided to change it to a pie chart because it makes more sense to analyze the percentage of death of the age group than the numbers of death. Each slice has a color associated with that particular gender or age category. This makes it more engaging.</p>
+
+        <p><b>4. Line Chart:</b></p><br>
+
+        <div class="row">
+            <div class="column1">
+                <img src="images/Line_chart.png" alt="line chart" width="500" height="300">
+                <p style="margin-left: 220px;"><b>Fig 7</b></p>
+            </div>
+            <div class="column2">
+                <img src="images/line_chart_map.png" alt="map" width="600" height="400">
+                <p style="margin-left: 270px;"><b>Fig 8</b></p> 
+            </div>
+        </div>
+
+        <br>
+
+        <p>Line charts are a popular visualization because they are effective in showing trends and changes in data over time. They are particularly useful for displaying data that changes over time. By making a line chart, it's easy to understand the number of deaths that happened every single day. I have also added a highlighting feature that highlights the number of deaths on the map for each day. This way it becomes easy for the user to see the trend of the deaths. As the length of the dataset increases, it becomes complicated to visualize data using a line chart, but it works well for this particular visualization.</p><br>
+
+        <b style="font-size:20px"><u>Final Visulization</u></b> <br><br>
+
+        
+            <img src="images/gender_final.png" alt="line chart" width="800" height="400">
+            <p style="margin-left: 350px;"><b>Fig 9</b></p><br>
+            
+            <img src="images/age_final.png" alt="map" width="800" height="400">
+            <p style="margin-left: 350px;"><b>Fig 10</b></p> 
+
+        <br>
+
+        <ul>
+            <li><p>It is clear from the visualization that water from the pump near Broad Street was contaminated as most of the deaths can be seen concentrated around that water pump.</p></li>
+            <li><p>No particular gender is affected by cholera as the death percentages for both males and females are approximately similar. </p></li>
+            <li><p> Children (0-10 years) and Elders (>80 years) are mostly affected by the cholera epidemic. They have higher percentages of deaths.</p></li>
+            <li><p>Deaths because of this epidemic started rising on 30 Aug. The city saw the highest number of deaths on 1 Sep. After this date, the numbers started decreasing.</p></li>
+          </ul>  
+
+          <br>
+          
+        <b style="font-size:20px"><u>References</u></b> <br><br>
+
+        <ul>
+            <li><a href="https://d3js.org/">https://d3js.org/</a></li>
+            <li><a href="https://d3-graph-gallery.com/">https://d3-graph-gallery.com/</a></li>
+            <li><a href="https://jsfiddle.net/Iamnino/6aw9fjLq/39/">https://jsfiddle.net/Iamnino/6aw9fjLq/39/</a></li>
+            <li><a href="https://matcha.fyi/zoom-scroll-tutorial/">https://matcha.fyi/zoom-scroll-tutorial/</a></li>
+            <li><a href="https://gist.github.com/mbostock/7882658">https://gist.github.com/mbostock/7882658</a></li>
+            <li><a href="http://www.rgblind.se/url">http://www.rgblind.se/url</a></li>
+        </ul>
+        
+        <br>
+        <b style="font-size:20px"><u>Youtube Video of visulization with narration</u></b> <br><br>
+
+        <a href="https://youtu.be/vrNDVUHM8N4">Youtube Video Link</a>
+
+
+    </div>
+</body>
+</html>

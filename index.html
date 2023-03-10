@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Project 1</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="js/index.js"></script>
+	<!-- <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script> -->
+	<style>
+		.header1 {
+			text-align: center;
+			background: #010185;
+			color: white;
+			font-size: 30px;
+			height:60px;
+			line-height: 60px;
+		}
+		.header2{
+			text-align: center;
+			font-size: 25px;
+			background: #8192e3;
+			color:black;
+			height:40px;
+			line-height: 40px;
+		}
+		.row {
+			display: flex;
+		}
+
+		.column1 {
+			flex: 60%;
+		}
+		.column2 {
+			flex:15%;
+		}
+		.column3 {
+			flex:35%;
+		}
+		.map-container{
+			overflow: hidden;
+		}
+		rect {
+			transform-origin: center;
+			transform-box: fill-box;
+		}
+
+		#nav {
+            list-style: none inside;
+            margin: 0;
+            padding: 0;
+            /* text-align: center; */
+        }
+
+        #nav li {
+            display: block;
+            position: relative;
+            float: left;
+            background: #8192e3;
+            /* menu background color */
+        }
+		#nav li a {
+            display: block;
+            padding: 0;
+            text-decoration: none;
+            width: 150px;
+            /* this is the width of the menu items */
+            /* line-height: 35px; */
+            /* this is the hieght of the menu items */
+            color: black;
+            /* list item font color */
+        }
+		#nav li li a {
+            font-size: 20px;
+        }
+
+        /* smaller font size for sub menu items */
+
+        #nav li:hover {
+            background:#8192e3;
+        }
+
+        /* highlights current hovered list item and the parent list items when hovering over sub menues */
+
+        #nav ul {
+            position: absolute;
+            padding: 0;
+            left: 0;
+            display: none;
+            /* hides sublists */
+        }
+
+        #nav li:hover ul ul {
+            display: none;
+        }
+
+        /* hides sub-sublists */
+
+        #nav li:hover ul {
+            display: block;
+        }
+
+        /* shows sublist on hover */
+
+        #nav li li:hover ul {
+            display: block;
+            /* shows sub-sublist on hover */
+            margin-left: 100px;
+            /* this should be the same width as the parent list item */
+            margin-top: -35px;
+            /* aligns top of sub menu with top of list item */
+        }
+
+	</style>
+</head>
+<body style="overflow-x: hidden;">
+	<div class="header1">
+		<label>Dr. John Snow's map of London's 1854 cholera epidemic</label>
+	</div>
+
+	<div class="header2">
+		<div class="form-check">
+			<input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked onclick="showDeathGender()">Gender
+			<label class="form-check-label" for="radio1"></label>
+			<input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" onclick="showDeathAge()">Age
+			<label class="form-check-label" for="radio1"></label>
+
+			<div style="float:right">
+				<ul id="nav">
+					<li><a href="#">Menu</a>
+						<ul>
+							<li><a href="documentation.html">Documentation</a></li>
+							<li><a href="about_me.html">About Me</a></li>
+				</ul>
+			</div>
+
+		</div>
+		
+	</div>
+
+	<div class="row">
+		<div id="main_svg_div" class="column1 map-container">
+			
+			<svg id="main" width="700" height="700">
+				<g transform="translate(170,150)">
+					
+				</g>
+						
+			</svg>
+		</div>
+		<div class="column2">
+			
+			<svg id="legends" width="200" height="400">
+				<g id="legends_g" transform="translate(-170,10)">
+		
+				</g>
+			</svg>
+			<button type="button" class="btn btn-primary" onclick="resetZoom()" style="margin-left: 10px;">Reset Zoom</button>
+		</div>
+		<div class="column3">
+			<div id="line_chart">
+				<!-- <svg id="line_chart" width="800" height="350">
+					<g id="line_chart_g" transform="translate(200,0)">
+			
+					</g>
+				</svg> -->
+			</div>
+			<div>
+				<svg id="bar_chart" width="500" height="300">
+					<g id="bar_chart_g" transform="translate(250,150)">
+			
+					</g>
+				</svg>
+			</div>
+			
+			
+			
+			
+		</div>
+	  </div>
+<script>
+	
+
+	var svg = d3.select("#main");
+	var zoom = d3.zoom()
+	.on("zoom", function() {
+		// Update the transform of the SVG element based on the zoom event
+		svg.attr("transform", d3.event.transform);
+	});
+	svg.call(zoom);
+
+	function resetZoom(){
+		document.getElementById('main').setAttribute('transform','translate(0,0)');
+	}
+
+</script>
+</body>
